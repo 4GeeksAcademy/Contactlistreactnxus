@@ -24,6 +24,8 @@ const FormularioNuevoContacto = () => {
                 <span className="input-group-text" id="basic-addon1">Address</span>
                 <input type="text" className="form-control" placeholder="Add address" aria-label="Username" aria-describedby="basic-addon1"/>
             </div>
+
+            <button className="btn btn-primary d-flex text-align-center">Save</button>
             </div>
         
 
