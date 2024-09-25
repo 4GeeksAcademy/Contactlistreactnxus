@@ -45,7 +45,7 @@ const ConfirmButton = styled(Button)`
     color: white;
 `;
 
-const Modal = ({ isOpen, onClose, onConfirm }) => {
+const Modal = ({ isOpen, onClose, onConfirm, id }) => {
     if (!isOpen) return null;
 
     return (
@@ -53,7 +53,7 @@ const Modal = ({ isOpen, onClose, onConfirm }) => {
             <ModalContainer>
                 <h3>Are you sure?</h3>
                 <p>This will delete the entire universe.</p>
-                <ConfirmButton onClick={confirmDelete}>Yes, delete</ConfirmButton>
+                <ConfirmButton onClick={onConfirm}>Yes, delete</ConfirmButton>
                 <CancelButton onClick={onClose}>Please don't delete</CancelButton>
             </ModalContainer>
         </ModalOverlay>

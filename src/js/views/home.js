@@ -17,6 +17,7 @@ export const Home = () => {
 				return (
 					<ContactCard 
 						key={item.id}
+						id ={item.id}
 						fullName={item.name}
                 		address={item.address}
                 		phone={item.phone}

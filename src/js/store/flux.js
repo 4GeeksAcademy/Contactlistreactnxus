@@ -31,18 +31,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				})
 				const data = await response.json();
-				setStore({contactList: data.contacts})
+				setStore({ contactList: data.contacts })
 
 			},
 
-			PostContacts: async () => {
-				const response = await fetch("https://playground.4geeks.com/contact/agendas/Agendanxus", {
-					method: "POST"
+			deleteContact: async (id) => {
+				await fetch("https://playground.4geeks.com/contact/agendas/Agendanxus/contacts/" + id,
+					{
+						method: "DELETE",
+						headers: { "Content-Type": "application/json" }
 
-				})
-				const data = await response.json();
-				setStore({contactList: data.contacts})
+					})
+				getActions().loadContacts()
+			},
 
+
+
+			postContacts: async (info) => {
+				try {
+					await fetch("https://playground.4geeks.com/contact/agendas/Agendanxus/contacts", {
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify(info)
+
+					})
+
+					getActions().loadContacts()
+
+					return true
+				} catch (error) {
+					console.log(error);
+					return false
+				}
 			},
 
 			loadSomeData: () => {

@@ -40,7 +40,7 @@ const ContactCard = ({ id, fullName, address, phone, email, imageUrl }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { actions } = useContext(Context);
     const navigate = useNavigate();
-
+    
     const handleEdit = () => {
         navigate(`/edit/${id}`);
     };
@@ -50,6 +50,7 @@ const ContactCard = ({ id, fullName, address, phone, email, imageUrl }) => {
     };
 
     const confirmDelete = async () => {
+
         await actions.deleteContact(id);
         setIsModalOpen(false);
     };
@@ -86,7 +87,7 @@ const ContactCard = ({ id, fullName, address, phone, email, imageUrl }) => {
                     </p>
                 </div>
             </div>
-            <Modal isOpen={isModalOpen} onClose={closeModal} onConfirm={confirmDelete} />
+            <Modal isOpen={isModalOpen} onClose={closeModal} onConfirm={confirmDelete} id={id} />
         </div>
     );
 };
