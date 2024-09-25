@@ -1,6 +1,15 @@
-import React from "react";
+import React, {useContext, useState} from "react";
+import {Contact} from "../store/appContext"
+
 
 const FormularioNuevoContacto = () => {
+
+    useState // estado para data set data todos los valores del formulario
+
+    const Agregar = (e ) => {
+        e.preventDefault()
+        action.Crearcontacto(data)
+    }
 
     return (
         <div className="container justify-content-center">
@@ -25,7 +34,7 @@ const FormularioNuevoContacto = () => {
                 <input type="text" className="form-control" placeholder="Add address" aria-label="Username" aria-describedby="basic-addon1"/>
             </div>
 
-            <button className="btn btn-primary d-flex text-align-center">Save</button>
+            <button className="btn btn-primary d-flex text-align-center" onClick={Agregar}>Save</button>
             </div>
         
 

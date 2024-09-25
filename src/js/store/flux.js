@@ -35,6 +35,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
+			PostContacts: async () => {
+				const response = await fetch("https://playground.4geeks.com/contact/agendas/Agendanxus", {
+					method: "POST"
+
+				})
+				const data = await response.json();
+				setStore({contactList: data.contacts})
+
+			},
+
 			loadSomeData: () => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
