@@ -43,8 +43,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					})
 				getActions().loadContacts()
-			},
+			}
+			
+			editContact: async (id) => {
+				await fetch("https://playground.4geeks.com/contact/agendas/Agendanxus/contacts/" + id,
+					{
+						method: "EDIT",
+						headers: { "Content-Type": "application/json" }
 
+					})
+				getActions().handleEdit.Contacts()
+
+			},
+			
+			
 
 
 			postContacts: async (info) => {
