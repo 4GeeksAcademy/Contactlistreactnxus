@@ -22,11 +22,14 @@ const FormularioNuevoContacto = () => {
             "address": address
           }
        let resp = await actions.postContacts(data)
-       if(resp){
+
+       
+       
+    
+    }
+
+    const irAPaginaDeInicio = () => {
         navigate("/")
-       } else{
-        alert("algo salio mal")
-       }
     }
 
     return (
@@ -53,7 +56,13 @@ const FormularioNuevoContacto = () => {
             </div>
 
             <button className="btn btn-primary d-flex text-align-center" onClick={agregar}>Save</button>
+            <button type="button" onClick={irAPaginaDeInicio} className="btn btn-secondary m-3">Regresar al inicio</button>
             </div>
+            
+
+            
+           
+        
         
 
     )

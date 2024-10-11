@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Context } from './store/appContext'; // Asegúrate de que la ruta sea correcta
 import Home from './components/Home'; // Componente de ejemplo
 import ContactList from './components/ContactList'; // Lista de contactos
-import EditContact from './components/EditContact'; // Componente para editar contactos
-import Modal from './components/Modal'; // Si usas un modal
+import EditContact from './components/EditContact'; // Comp
+import Modal from './components/Modal'; 
 
 const App = () => {
     return (
@@ -19,8 +19,7 @@ const App = () => {
                             <Route path="/edit/:id" element={<EditContact />} />
                         </Routes>
                     </div>
-                    {/* Aquí puedes añadir tu modal si lo necesitas */}
-                    {/* <Modal /> */}
+                    
                 </Router>
             )}
         </Context.Consumer>

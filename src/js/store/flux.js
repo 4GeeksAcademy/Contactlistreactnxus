@@ -28,6 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loadContacts: async () => {
 				const response = await fetch("https://playground.4geeks.com/contact/agendas/Agendanxus", {
 					method: "GET"
+					
 
 				})
 				const data = await response.json();
@@ -45,19 +46,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().loadContacts()
 			},
 			
-			editContact: async (id) => {
-				await fetch("https://playground.4geeks.com/contact/agendas/Agendanxus/contacts/" + id,
-					{
-						method: "EDIT",
-						headers: { "Content-Type": "application/json" }
-
-					})
-				getActions().handleEdit.loadContacts()
+			editContact: async (data,id) => {
+				console.log(data, id);
+				try {
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/Agendanxus/contacts/${id}`, 
+						{
+							method: "PUT", 
+							headers: { "Content-Type": "application/json" },
+							body: JSON.stringify(data)
+						});
+			
+					if (response.ok) {
+						alert("Contact updated successfully!");
+						getActions().loadContacts()
+						//return true;
+					
+						//return false;
+					}
+				} catch (error) {
+					console.log(error);
+					//return false;
+					
+				}
 
 			},
 			
-			
-
 
 			postContacts: async (info) => {
 				try {
@@ -67,6 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify(info)
 
 					})
+					
 
 					getActions().loadContacts()
 
